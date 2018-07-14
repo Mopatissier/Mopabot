@@ -1,0 +1,2 @@
+# Mopabot
+Personal Discord bot
