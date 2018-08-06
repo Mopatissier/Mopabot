@@ -1,13 +1,16 @@
 import discord
 import datetime
+import pytz
 import re
 import asyncio
 
 from datetime import datetime, date
 from discord.ext.commands import Bot
 
+import configtest
+
 BOT_PREFIX = "!"
-TOKEN = 'NDY3MDkyNDcwNDY3OTE5OTAy.DilmmA.CE5eizESYxDETlp56-XCoo1HDdE'
+TOKEN = config.token_secret
 
 her_id = "220042310526697473" #Whispie
 # her_id = "163256075745755136" #Sayushii
@@ -21,6 +24,8 @@ client = Bot(command_prefix=BOT_PREFIX)
                 brief="Record a message.",
                 pass_context=True)
 async def message(ctx):
+    tz = pytz.timezone('US/Eastern')
+
     her = await client.get_user_info(her_id)
 
     if ctx.message.author.id == her_id:
@@ -52,10 +57,6 @@ async def message(ctx):
         await client.say("I need a valid time!")
         return
 
-    hour = hour+6
-    if hour >= 24:
-        hour = hour-24
-
     await client.say("Recording...")
 
     time = {}
@@ -68,20 +69,20 @@ async def message(ctx):
         if messagerecord.content != "Recording...":
             i = i + 1
             msg[i] = messagerecord.content
-            time[i] = datetime.now().time()
+            time[i] = datetime.now(tz).time()
 
     await client.say("End of recording.")
 
     timewait = datetime(2000, 1, 1, hour, minute, 0)
-    realtime = datetime.now().time()
+    realtime = datetime.now(tz).time()
 
     while realtime.second is not 0:
         await asyncio.sleep(1)
-        realtime = datetime.now().time()
+        realtime = datetime.now(tz).time()
 
     while timewait.hour is not realtime.hour or timewait.minute is not realtime.minute:
         await asyncio.sleep(60)
-        realtime = datetime.now().time()
+        realtime = datetime.now(tz).time()
 
     i2 = 1
     while i2 < i:
