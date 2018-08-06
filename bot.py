@@ -7,7 +7,7 @@ import asyncio
 from datetime import datetime, date
 from discord.ext.commands import Bot
 
-import configtest
+import config
 
 BOT_PREFIX = "!"
 TOKEN = config.token_secret
