@@ -3,19 +3,25 @@ import datetime
 import pytz
 import re
 import asyncio
+import os
+import config
 
 from datetime import datetime, date
 from discord.ext.commands import Bot
 
-import config
-
 BOT_PREFIX = "!"
-TOKEN = config.token_secret
+
+is_online = os.environ.get('IS_HEROKU', None)
+if is_online:
+    TOKEN = os.environ.get('TOKEN')
+else:
+    TOKEN = config.TOKEN
 
 her_id = "220042310526697473" #Whispie
 # her_id = "163256075745755136" #Sayushii
 # her_id = "139479225655623680" #Adri
 id_me = "332213498513981441" #Moi
+her_id = id_me
 
 client = Bot(command_prefix=BOT_PREFIX)
 
