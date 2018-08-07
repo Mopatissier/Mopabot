@@ -36,15 +36,9 @@ async def message(ctx):
 
     her = await client.get_user_info(her_id)
 
-    if ctx.message.author.id == her_id:
+    if ctx.message.author.id != her_id:
         await client.say("Hehe, well tried, Whispie, but I'm only allowed to obey Mopati. :3")
         await client.say("If you want me to allow you something, ask my creator for it!")
-        await client.say(str(os.environ.get('IS_HEROKU', None)))
-        if str(os.environ.get('TOKEN')) == TOKEN:
-            await client.say("Identique !")
-        else:
-            await client.say(TOKEN)
-            await client.say(os.environ.get('TOKEN'))
         return
 
     if ctx.message.author.id != id_me:
