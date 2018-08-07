@@ -13,9 +13,9 @@ BOT_PREFIX = "!"
 
 is_online = os.environ.get('IS_HEROKU', None)
 if is_online:
-    TOKEN = 'NDY3MDkyNDcwNDY3OTE5OTAy.Dkow3A.pO4H0Es9JR6TmMS_z1wBe3ylYR4'
+    TOKEN = os.environ.get('TOKEN', None)
 else:
-    TOKEN = 'NDY3MDkyNDcwNDY3OTE5OTAy.Dkow3A.pO4H0Es9JR6TmMS_z1wBe3ylYR4'
+    TOKEN = config.TOKEN
 
 her_id = "220042310526697473" #Whispie
 # her_id = "163256075745755136" #Sayushii
