@@ -10,12 +10,13 @@ from datetime import datetime, date
 from discord.ext.commands import Bot
 
 BOT_PREFIX = "!"
+TOKEN = 'NDY3MDkyNDcwNDY3OTE5OTAy.DkskEA.6Me8xK7QfnQR73FwEZ0t7VgHDmA'
 
-is_online = os.environ.get('IS_HEROKU', None)
-if is_online:
-    TOKEN = os.environ.get('TOKEN', None)
-else:
-    TOKEN = config.TOKEN
+# is_online = os.environ.get('IS_HEROKU', None)
+# if is_online:
+#     TOKEN = os.environ.get('TOKEN', None)
+# else:
+#     TOKEN = config.TOKEN
 
 her_id = "220042310526697473" #Whispie
 # her_id = "163256075745755136" #Sayushii
