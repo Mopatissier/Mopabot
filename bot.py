@@ -13,7 +13,7 @@ BOT_PREFIX = "!"
 
 is_online = os.environ.get('IS_HEROKU', None)
 if is_online:
-    TOKEN = os.environ.get('TOKEN')
+    TOKEN = 'NDY3MDkyNDcwNDY3OTE5OTAy.Dkow3A.pO4H0Es9JR6TmMS_z1wBe3ylYR4'
 else:
     TOKEN = 'NDY3MDkyNDcwNDY3OTE5OTAy.Dkow3A.pO4H0Es9JR6TmMS_z1wBe3ylYR4'
 
