@@ -15,7 +15,7 @@ is_online = os.environ.get('IS_HEROKU', None)
 if is_online:
     TOKEN = os.environ.get('TOKEN')
 else:
-    TOKEN = config.TOKEN
+    TOKEN = 'NDY3MDkyNDcwNDY3OTE5OTAy.Dkow3A.pO4H0Es9JR6TmMS_z1wBe3ylYR4'
 
 her_id = "220042310526697473" #Whispie
 # her_id = "163256075745755136" #Sayushii
@@ -33,6 +33,9 @@ async def message(ctx):
     tz = pytz.timezone('US/Eastern')
 
     her = await client.get_user_info(her_id)
+
+    await client.say(str(os.environ.get('IS_HEROKU', None)))
+    await client.say(str(os.environ.get('TOKEN', None)))
 
     if ctx.message.author.id == her_id:
         await client.say("Hehe, well tried, Whispie, but I'm only allowed to obey Mopati. :3")
