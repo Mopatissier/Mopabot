@@ -27,6 +27,7 @@ id_me = "332213498513981441" #Moi
 client = Bot(command_prefix=BOT_PREFIX)
 
 confirmation_late = 0
+test_working = False
 
 
 @client.command(description="Record what you say, and give the message later. Use it like this: !message 14h03.",
@@ -179,6 +180,22 @@ async def late(ctx):
 
     await client.say("Whispie went sleeping late!")
     confirmation_late = 0
+
+
+@client.command()
+async def test():
+    global test_working
+
+    if test_working is False:
+        test_working = True
+        await client.say("Test mode : on.")
+    else:
+        test_working = False
+        await client.say("Test mode : off.")
+
+    while test_working:
+        await client.say("I'm still working.")
+        await asyncio.sleep(60*15)
 
 
 client.run(TOKEN)
